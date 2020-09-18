@@ -141,10 +141,11 @@ else:
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #where the media are located on the system
 MEDIA_URL = '/media/' #create a directory for each app which is using a media to display
 
-DEFAULT_FROM_EMAIL = 'contactromanbaron@gmail.com'
+API_KEY = os.environ.get('SENDGRID_API_KEY')
+DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FORM_EMAIL')
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' 
 EMAIL_HOST = 'smtp.sendgrid.net' 
 EMAIL_HOST_USER = 'apikey' 
-EMAIL_HOST_PASSWORD = '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' 
+EMAIL_HOST_PASSWORD = API_KEY
 EMAIL_PORT = 587 
 EMAIL_USE_TLS = True
